@@ -1,4 +1,4 @@
-package playground
+package exercises
 
 object Task_2_5 extends App {
 

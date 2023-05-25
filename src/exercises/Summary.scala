@@ -1,4 +1,4 @@
-package playground
+package exercises
 
 object Summary extends App {
 
