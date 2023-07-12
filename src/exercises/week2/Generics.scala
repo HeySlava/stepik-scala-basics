@@ -12,8 +12,8 @@ object Generics extends App{
   case class UserEvent(id: String, evType: String, operation: String) extends Event
   case class SystemEvent(id: String, evType: String, operation: String) extends Event
 
-  trait Registrable {
-    def update(event, status: String)
+  trait Registrable[T <: Event] {
+    def update(event: T, status: String): T
   }
 
   object EventOps {
@@ -26,8 +26,8 @@ object Generics extends App{
     }
   }
 
-  class EventOps(event)(ops: Registrable) {
-    def update(status: String) = ops.update(event, status)
+  class EventOps[T <: Event](event: T)(ops: Registrable[T]) {
+    def update(status: String)= ops.update(event, status)
   }
 
   val user1Event = UserEvent("1", "user_event", "account_create")
