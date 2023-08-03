@@ -50,7 +50,5 @@ object Collections extends App{
 
 
   println(Seq(2, 1, 3).sorted.search(1))
-
-
-
+  
 }
